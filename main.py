@@ -2,23 +2,19 @@ import pandas as pd
 import numpy as np 
 import matplotlib.pyplot as plt 
 
-# File Path
-fp = "LAB Data Excel sheet - Tarana.xls"
+# File path and data frame generation
+filePath = "LAB Data Excel sheet - Tarana.xls"
+df = pd.read_excel(filePath, sheet_name="My GCSE Data Set")
 
-# Define File
-df = pd.read_excel(fp, sheet_name="Table 16", header=1)
+# Columns for task
+b_df = df[['Local Authority Name', 'Male %', 'Female %', 'Total %']].copy()
+b_df.columns = ['Local Authority', 'Male', 'Female', 'Total']
 
-# Coloumns needed for task
-b_df = df[['LA_name', 'M_5ACEM', 'F_5ACEM', 'T_5ACEM']].copy()
-b_df.columns = ['Local Authority Name', 'Male %', 'Female %', 'Total %']
-
-# Conversion from numeric to string values
-for col in ['Male %', 'Female %', 'Total %']:
+# Conversion to numeric in cases any cells were stored as text
+for col in ['Male', 'Female', 'Total']:
     b_df[col] = pd.to_numeric(b_df[col], errors='coerce')
 
-# Removal of null values
+# Remove null values
 b_df = b_df.dropna()
 print(b_df.head())
 print(b_df.shape)
-
-
