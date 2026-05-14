@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt 
 
 # File path and data frame generation
-filePath = "LAB Data Excel sheet - Tarana.xls"
+filePath = "LAB Data Excel sheet - Tarana.xlsx"
 df = pd.read_excel(filePath, sheet_name="My GCSE Data Set")
 
 # Columns for task
