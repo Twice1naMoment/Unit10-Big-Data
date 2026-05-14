@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Any colour or label included can and should be modified to any person's choosing
+
 # Excel file initialised
 filePath = "LAB Data Excel Sheet - Tarana.xlsx"
 df = pd.read_excel(filePath, sheet_name="My GCSE Data Set")
